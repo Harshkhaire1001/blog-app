@@ -6,7 +6,6 @@ import { app } from '../firebase';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { updateStart , updateSuccess, updateFailure} from '../redux/user/userSlice';
-import { UseDispatch } from 'react-redux';
 import fetchWithBaseURL from '../utils/fetch.js';
 
 export default function DashProfile() {
@@ -85,13 +84,15 @@ export default function DashProfile() {
     }
     try {
       dispatch(updateStart());
-      const res = await fetchWithBaseURL(`/api/user/update/${currentUser._id}`, {
+      const res = await fetchWithBaseURL(`api/user/update/${currentUser._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify(formData),
       });
+      console.log(res);
       const data = await res.json();
       if (!res.ok) {
         dispatch(updateFailure(data.message));
