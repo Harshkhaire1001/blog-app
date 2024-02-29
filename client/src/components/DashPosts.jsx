@@ -92,7 +92,7 @@ const handleDeletePost = async () => {
             </Table.HeadCell>
           </Table.Head>
           {userPosts.map( (post) => (
-            <Table.Body className='divide-y'>
+            <Table.Body className='divide-y' key={post._id}>
               <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
                 
                 <Table.Cell>
