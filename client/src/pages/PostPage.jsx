@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import fetchWithBaseURL from "../utils/fetch.js";
 import { Button, Spinner } from "flowbite-react";
-import CallToAction from "../components/CallToAction";
 import CommentSection from "../components/CommentSection";
 import PostCard from "../components/PostCard.jsx";
 
@@ -88,10 +87,6 @@ export default function PostPage() {
         className='p-3 max-w-2xl mx-auto w-full post-content'
         dangerouslySetInnerHTML={{ __html: post && post.content }}
       ></div>
-        
-      <div className='max-w-4xl mx-auto w-full'>
-        <CallToAction />
-      </div>
 
       {post && <CommentSection postId={post._id} />}
 
