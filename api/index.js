@@ -16,8 +16,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-    credentials:true,
-    origin: 'http://localhost:3000',
+    credentials: true,
+    origin: ['http://localhost:3000', 'https://harsh-khaire-blog.onrender.com'],
 }));
 
 mongoose.connect(process.env.MONGO_URL).then(() => {
